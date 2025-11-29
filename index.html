@@ -204,15 +204,41 @@
     /* CSS:ABOUT-END */
 
 
-    /* CSS:SKILLS-START */
-    .section-skills .skill-list { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.5rem; }
-    .skill-pill {
+    /* CSS:SKILLS-START  （已依 SDD 重新改寫） */
+    .skills-grid {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    .skills-text-box {
+      display: grid;
+      gap: 1rem;
       background: rgba(255,255,255,0.02);
-      padding: 0.4rem 0.6rem;
-      border-radius: 999px;
-      font-size: 0.9rem;
-      color: var(--muted);
-      border: 1px solid rgba(255,255,255,0.02);
+      padding: 1.2rem;
+      border-radius: var(--radius);
+      border: 1px solid rgba(255,255,255,0.03);
+    }
+
+    .skills-btn-row {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-top: 0.25rem;
+    }
+
+    .skills-btn {
+      padding: 0.6rem 0.95rem;
+      border-radius: 10px;
+      background: rgba(30,136,255,0.1);
+      border: 1px solid rgba(30,136,255,0.15);
+      color: var(--accent);
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .skills-img {
+      max-width: 420px;
+      margin: 0 auto;
     }
     /* CSS:SKILLS-END */
 
@@ -247,6 +273,7 @@
     }
 
     @media (min-width: 768px) {
+
       .section-hero {
         grid-template-columns: 1fr 420px;
         gap: 2rem;
@@ -258,6 +285,13 @@
       /* ABOUT RWD：平板以上改為左文右圖 */
       .about-grid {
         grid-template-columns: 1fr 380px;
+        align-items: center;
+        gap: 2rem;
+      }
+
+      /* SKILLS RWD：左圖右文（依 SDD） */
+      .skills-grid {
+        grid-template-columns: 420px 1fr;
         align-items: center;
         gap: 2rem;
       }
@@ -345,20 +379,34 @@
       </section>
       <!-- SECTION:ABOUT-END -->
 
-      <!-- SECTION:SKILLS-START -->
+      <!-- SECTION:SKILLS-START （本次更新區） -->
       <section id="skills" class="section section-skills" aria-labelledby="skills-heading">
-        <div class="container">
-          <h2 id="skills-heading" class="section-title">技能（之後會用 Section SDD 替換）</h2>
-          <p class="muted">這裡目前是 Skills 區的占位內容，將列出前端技術、工具與熟悉程度。之後會用 Section SDD 的 Prompt 產生新的 section，請把新的 section 程式碼整段貼在這兩個註解中間，完全取代現在這一區。</p>
+        <div class="container skills-grid">
 
-          <div class="skill-list" aria-hidden="false" style="margin-top:0.75rem;">
-            <span class="skill-pill">HTML</span>
-            <span class="skill-pill">CSS</span>
-            <span class="skill-pill">Responsive Design</span>
-            <span class="skill-pill">Accessibility</span>
-            <span class="skill-pill">Vue / React</span>
-            <span class="skill-pill">Performance</span>
+          <!-- 圖片（左，手機版會下方） -->
+          <div class="skills-img">
+            <img src="https://images.unsplash.com/photo-1517430816045-df4b7de11d1d?q=80&w=1200&auto=format&fit=crop"
+                 alt="專注撰寫程式碼的工程師示意照片" loading="lazy">
           </div>
+
+          <!-- 文字區 -->
+          <div class="skills-text-box">
+            <h2 id="skills-heading" class="section-title">技能</h2>
+
+            <p class="muted">
+              身為一位前端工程師，我專注於網站介面實作、RWD 排版、使用者體驗改善、可維護的程式架構，以及將技術知識拆解成易懂的教學內容。熟悉 HTML、CSS、JavaScript、前端框架與效能調優等領域。
+            </p>
+
+            <p class="muted">
+              這些技能不僅讓我能打造穩定、美觀、可擴充的前端介面，也讓我能以教練的角度協助團隊快速理解技術決策、提升合作效率，使專案能更順暢地推進。
+            </p>
+
+            <div class="skills-btn-row">
+              <a href="#projects" class="skills-btn">查看作品集</a>
+              <a href="#contact" class="skills-btn">聯絡我</a>
+            </div>
+          </div>
+
         </div>
       </section>
       <!-- SECTION:SKILLS-END -->
