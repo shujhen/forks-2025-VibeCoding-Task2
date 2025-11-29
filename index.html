@@ -152,8 +152,8 @@
       max-width: 420px;
       justify-self: center;
     }
-
     /* CSS:HERO-END */
+
 
 
     /* CSS:ABOUT-START */
@@ -242,21 +242,40 @@
     }
     /* CSS:SKILLS-END */
 
+  /* CSS:PROJECTS-START */
+  .section-projects .projects-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
 
-    /* CSS:PROJECTS-START */
+  .section-projects .project-card {
+    background: rgba(255,255,255,0.02);
+    padding: 1rem;
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,0.02);
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  /* 圖片與文字在平板以上呈左右排列 */
+  @media (min-width: 768px) {
     .section-projects .projects-grid {
-      display: grid;
-      grid-template-columns: 1fr;
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .section-projects .project-card > div {
+      flex-direction: row;
+      align-items: flex-start;
       gap: 1rem;
     }
-    .project-card {
-      background: rgba(255,255,255,0.02);
-      padding: 1rem;
-      border-radius: 10px;
-      border: 1px solid rgba(255,255,255,0.02);
+    .section-projects .project-card img {
+      width: 150px;
+      flex-shrink: 0;
+      border-radius: var(--radius);
     }
-    .project-meta { font-size: 0.9rem; color: var(--muted); margin-top: 0.5rem; }
-    /* CSS:PROJECTS-END */
+  }
+  /* CSS:PROJECTS-END */
 
 
     /* CSS:CONTACT-START */
@@ -322,22 +341,24 @@
     </header>
 
     <main>
+      
       <!-- SECTION:HERO-START -->
       <section id="hero" class="section section-hero" aria-labelledby="hero-heading">
         <div class="container hero-inner">
           <div>
-            <h1 id="hero-heading" class="hero-title">個人品牌 — 前端工程師專屬簡潔骨架</h1>
+            <h1 id="hero-heading" class="hero-title">Anna 接案 | 設計 | 網頁 | APP</h1>
             <p class="hero-lead muted">
-              這是一個以深色主題與乾淨設計為基礎的個人網站骨架，適合展示個人介紹、技能、作品與聯絡資訊。此區為占位內容，之後會用 Section SDD 的 Prompt 產生正式文案與版面，再把整個 section 貼回來取代這一區。
+              歡迎來到 Anna 的個人品牌網站。Anna 是專業的前端工程師，專注於網站與 APP 開發，提供設計到程式實作完整解決方案，並致力於打造優秀的使用者體驗。
             </p>
             <p class="muted" style="margin-top:0.5rem;">
-              核心職稱：Frontend Developer。行動呼籲：瀏覽作品集或使用聯絡區聯繫我。
+              不論是接案專案、網頁設計還是應用程式開發，Anna 都能以專業的技術與細膩的設計感協助您完成專案目標。
             </p>
-            <a class="hero-cta" href="#projects">瀏覽作品集</a>
+            <a class="hero-cta" href="#projects">查看作品集</a>
           </div>
 
           <div class="hero-image" aria-hidden="false">
-            <img src="https://images.unsplash.com/photo-1669023414180-4dcf35d943e1?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="網頁技能" loading="lazy" />
+            <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=1169&auto=format" 
+                 alt="專業前端工程師正在工作示意圖" loading="lazy" />
           </div>
         </div>
       </section>
@@ -414,20 +435,51 @@
       <!-- SECTION:PROJECTS-START -->
       <section id="projects" class="section section-projects" aria-labelledby="projects-heading">
         <div class="container">
-          <h2 id="projects-heading" class="section-title">作品集（之後會用 Section SDD 替換）</h2>
-          <p class="muted">這裡目前是 Projects 區的占位內容，將展示代表作品卡片與連結。之後會用 Section SDD 的 Prompt 產生新的 section，請把新的 section 程式碼整段貼在這兩個註解中間，完全取代現在這一區。</p>
+          <h2 id="projects-heading" class="section-title">作品集</h2>
 
           <div class="projects-grid" style="margin-top:1rem;">
             <article class="project-card" aria-labelledby="proj-1-title">
-              <h3 id="proj-1-title" style="margin:0 0 0.25rem 0;">範例專案 A</h3>
-              <p class="muted" style="margin:0;">專案簡短說明（占位）。</p>
-              <p class="project-meta muted">連結：<a href="https://github.com/yourname" target="_blank" rel="noopener">GitHub / 範例專案A</a></p>
+              <div style="display:flex; flex-direction:column; gap:0.75rem;">
+                <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?q=80&w=800&auto=format&fit=crop"
+                    alt="企業網站示意圖" loading="lazy">
+                <div>
+                  <h3 id="proj-1-title" style="margin:0 0 0.25rem 0;">企業形象網頁</h3>
+                  <p class="muted" style="margin:0;">依據客戶企業需求設計專業形象網站，強調品牌識別與業務呈現。</p>
+                </div>
+              </div>
             </article>
 
             <article class="project-card" aria-labelledby="proj-2-title">
-              <h3 id="proj-2-title" style="margin:0 0 0.25rem 0;">範例專案 B</h3>
-              <p class="muted" style="margin:0;">專案簡短說明（占位）。</p>
-              <p class="project-meta muted">連結：<a href="https://github.com/yourname" target="_blank" rel="noopener">GitHub / 範例專案B</a></p>
+              <div style="display:flex; flex-direction:column; gap:0.75rem;">
+                <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?q=80&w=800&auto=format&fit=crop"
+                    alt="手機 APP 示意圖" loading="lazy">
+                <div>
+                  <h3 id="proj-2-title" style="margin:0 0 0.25rem 0;">APP 作品</h3>
+                  <p class="muted" style="margin:0;">為客戶開發直覺操作的行動應用程式，提升用戶體驗與互動便利性。</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="project-card" aria-labelledby="proj-3-title">
+              <div style="display:flex; flex-direction:column; gap:0.75rem;">
+                <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=800&auto=format&fit=crop"
+                    alt="購物網站示意圖" loading="lazy">
+                <div>
+                  <h3 id="proj-3-title" style="margin:0 0 0.25rem 0;">購物網站作品</h3>
+                  <p class="muted" style="margin:0;">設計購物網站介面，優化購物流程與產品展示，提升轉換率。</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="project-card" aria-labelledby="proj-4-title">
+              <div style="display:flex; flex-direction:column; gap:0.75rem;">
+                <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=800&auto=format&fit=crop"
+                    alt="餐廳介紹網站示意圖" loading="lazy">
+                <div>
+                  <h3 id="proj-4-title" style="margin:0 0 0.25rem 0;">餐廳介紹作品</h3>
+                  <p class="muted" style="margin:0;">為餐廳設計線上介紹頁面，呈現菜單、環境與品牌故事。</p>
+                </div>
+              </div>
             </article>
           </div>
         </div>
@@ -437,10 +489,12 @@
       <!-- SECTION:CONTACT-START -->
       <section id="contact" class="section section-contact" aria-labelledby="contact-heading">
         <div class="container">
-          <h2 id="contact-heading" class="section-title">聯絡我（之後會用 Section SDD 替換）</h2>
-          <p class="muted">這裡目前是 Contact 區的占位內容，會提供 Email、電話與社群連結。之後會用 Section SDD 的 Prompt 產生新的 section，請把新的 section 程式碼整段貼在這兩個註解中間，完全取代現在這一區。</p>
+          <h2 id="contact-heading" class="section-title">聯絡我</h2>
+          <p class="muted" style="margin-bottom:0.75rem;">
+            歡迎您透過以下方式與我聯絡，不論是專案洽談、合作建議或任何問題，我都樂意回覆並提供協助。
+          </p>
 
-          <div class="contact-list" style="margin-top:0.75rem;">
+          <div class="contact-list">
             <div class="contact-item">
               <span class="muted">Email:</span>
               <a href="mailto:hello@example.com" aria-label="發送 Email">hello@example.com</a>
